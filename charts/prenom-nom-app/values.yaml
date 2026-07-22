@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/TON-USERNAME-GITHUB/prenom-nom-app
+  repository: ghcr.io/serignegueye45/SerigneMbaye-GUEYE-gitops-project
   tag: latest
   pullPolicy: Always
 
