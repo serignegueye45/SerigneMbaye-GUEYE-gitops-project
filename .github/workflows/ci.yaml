@@ -46,7 +46,7 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-- name: Update Helm values with new image tag
+      - name: Update Helm values with new image tag
         run: |
           sed -i "s|tag:.*|tag: \"${{ github.sha }}\"|" charts/prenom-nom-app/values.yaml
           git config user.name "github-actions[bot]"
@@ -54,6 +54,7 @@ jobs:
           git add charts/prenom-nom-app/values.yaml
           git commit -m "Update image tag to ${{ github.sha }} [skip ci]" || echo "No changes"
           git push
+
       - name: Set up Helm
         uses: azure/setup-helm@v4
 
